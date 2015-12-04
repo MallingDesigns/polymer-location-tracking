@@ -8,7 +8,7 @@
   <template>
     <style>:host {display:inline-block;}</style>
     <h2>LOCATION TRACKTING</h2>
-    <p>your longitude is:{{lon}} <p>
+    <p>your longitude is:{{lon}}<p>
     <p>your latitude is:{{lat}}<p>
   </template>
 </dom-module>
@@ -16,10 +16,10 @@
     is: "polymer-location-tracking",
     getLocation: function (){
        var startPos;
-  navigator.geolocation.getCurrentPosition(function(position) {
-    startPos = position;
-    this.lat = startPos.coords.latitude;
-    this.lon = startPos.coords.longitude;
+      navigator.geolocation.watchPosition(function(position) {
+        this.lat.innerHTML = position.coords.latitude;
+        this.lon.innerHTML = position.coords.longitude;
+      });
   });
     };
   });
