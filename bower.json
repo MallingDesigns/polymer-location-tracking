@@ -1,0 +1,12 @@
+{
+  "name": "polymer-location-tracking",
+  "version": "1.0.0",
+  "description": "polymer-location-tracking",
+  "main": "polymer-location-tracking.html",
+  "keywords": [
+    "polymer","web-components"
+  ],
+  "dependencies": {
+    "polymer": "*"
+  }
+}
