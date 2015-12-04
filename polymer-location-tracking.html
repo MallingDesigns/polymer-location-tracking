@@ -3,7 +3,6 @@
 `<polymer-location-tracking>` Track your position where ever you are!
 @demo demo.html
 -->
-<script>
 <dom-module id="polymer-location-tracking">
   <template>
     <style>:host {display:inline-block;}</style>
@@ -12,15 +11,25 @@
     <p>your latitude is:{{lat}}<p>
   </template>
 </dom-module>
+<script>
+
   Polymer({
     is: "polymer-location-tracking",
     getLocation: function (){
-       var startPos;
-      navigator.geolocation.watchPosition(function(position) {
-        this.lat.innerHTML = position.coords.latitude;
-        this.lon.innerHTML = position.coords.longitude;
-      });
-  });
+      var positionLat = this.lat
+      var positionLon = this.lon
+            function getLocation() {
+              if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(showPosition);
+              } else {
+                  positionLat = "Geolocation is not supported by this browser.";
+              }
+            }
+            function showPosition(position) {
+                this.lat = "Latitude: " + position.coords.latitude;
+                this.lon = "Longitude: " + position.coords.longitude; 
+            }
+    });
     };
   });
 </script>
