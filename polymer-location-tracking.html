@@ -16,6 +16,14 @@
   var that;
   Polymer({
     is: "polymer-location-tracking",
+    properties:{
+      lat: {
+        notify: true
+      },
+      lon: {
+        notify: true
+      }
+    },
     ready: function () {
       that = this
       if (navigator.geolocation) {
