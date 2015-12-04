@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+  </head>
+  <body>
+    <script>
+      WCT.loadSuites([
+        'polymer-location-tracking.html'
+      ]);
+    </script>
+  </body>
+</html>
+## /test/polymer-location-tracking.html
+<!doctype html>
+<html>
+  <head>
+    <title>polymer-location-tracking</title>
+    <script src="../../webcomponentsjs/webcomponents.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../../polymer/polymer.html">
+
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+    <link rel="import" href="../polymer-location-tracking.html">
+  </head>
+  <body>
+    <test-fixture id="polymerLocationTracking">
+
+      <template>
+        <polymer-location-tracking></polymer-location-tracking>
+      </template>
+    </test-fixture>
+    <script>
+      suite('<polymer-location-tracking>', function () {
+        var polymerLocationTracking;
+        polymerLocationTracking = fixture('polymerLocationTracking');
+        setup(function () {
+        });
+        teardown(function () {
+          //...
+        });
+        suite('basic usage', function () {
+          test('can be triggered with space', function(done) {
+            polymerLocationTracking.addEventListener('keydown', function() {
+              done();
+            });
+          });
+          test('can be clicked', function(done) {
+            polymerLocationTracking.addEventListener('click', function() {
+              done();
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
